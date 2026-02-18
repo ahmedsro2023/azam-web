@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ViewState } from '../types';
 import { MapPin } from 'lucide-react';
 import { brandData } from '../brandData';
@@ -55,7 +55,6 @@ const marqueeList = [...stripItems, ...stripItems, ...stripItems, ...stripItems]
 
 const Hero: React.FC<HeroProps> = ({ setView, onSelectBrand }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   const handleDragEnd = (e: any, { offset, velocity }: any) => {
     const swipe = Math.abs(offset.x) * velocity.x;
@@ -69,20 +68,17 @@ const Hero: React.FC<HeroProps> = ({ setView, onSelectBrand }) => {
 
   const nextSlide = () => {
     if (currentIndex < slides.length - 1) {
-      setDirection(1);
       setCurrentIndex(currentIndex + 1);
     }
   };
 
   const prevSlide = () => {
     if (currentIndex > 0) {
-      setDirection(-1);
       setCurrentIndex(currentIndex - 1);
     }
   };
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   };
 
@@ -96,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ setView, onSelectBrand }) => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black text-white">
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-black text-white">
       
       {/* Slider Track */}
       <motion.div 

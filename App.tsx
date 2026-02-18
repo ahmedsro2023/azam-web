@@ -33,7 +33,7 @@ const App: React.FC = () => {
       case ViewState.EVENTS:
         return <Events />;
       case ViewState.BRANDS:
-        return <Brands />;
+        return <Brands setView={setCurrentView} onSelectBrand={handleBrandSelect} />;
       case ViewState.GAME:
         return <Game />;
       case ViewState.BRAND_DETAIL:
@@ -44,7 +44,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-black min-h-screen text-white font-sans selection:bg-white selection:text-black">
+    <div className="relative bg-black min-h-[100dvh] text-white font-sans selection:bg-white selection:text-black overflow-hidden">
       <CustomCursor />
       
       {/* Navbar logic: Hide on detail page for immersion */}
@@ -52,7 +52,7 @@ const App: React.FC = () => {
          <Navbar currentView={currentView} setView={setCurrentView} />
       )}
       
-      <main className="relative w-full h-screen overflow-hidden">
+      <main className="relative w-full h-[100dvh] overflow-hidden">
         <AnimatePresence mode='wait'>
             <motion.div
                 key={currentView} // Triggers animation on view change

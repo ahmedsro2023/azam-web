@@ -44,11 +44,11 @@ const About: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative h-[600px] w-full bg-neutral-900 overflow-hidden"
         >
-          {/* Abstract Image Placeholder */}
+          {/* Real Portrait Image */}
            <img 
-             src="https://picsum.photos/800/1200?grayscale&blur=2" 
+             src="https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?q=80&w=1200&auto=format&fit=crop" 
              alt="Azam Portrait" 
-             className="w-full h-full object-cover opacity-60 hover:scale-105 transition-transform duration-1000 ease-out"
+             className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-1000 ease-out filter contrast-125 grayscale"
            />
            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         </motion.div>
